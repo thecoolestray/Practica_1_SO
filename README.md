@@ -156,8 +156,8 @@ Asegúrese de que el ejecutable del suscriptor MQTT se encuentre en el directori
 
 ---
 
-## 10. Autores
-- **Naela Khaldi** y **Zineb Hamman**  
+## 10. Autores  
+**Naela Khaldi** y **Zineb Hamman**   
 Sistemas Operativos  
  Curso Académico 2025/2026  
 
