@@ -83,7 +83,7 @@ mqtt_capture.log
 Generated graphs in the following directory:
 plots/
 
-An ASCII graph displayed in the terminal.
+an ASCII graph displayed in the terminal
 
 Example:
 
@@ -111,7 +111,7 @@ Academic Year 2025–2026
 
 11. Notes
 
-This project was developed as part of an Operating Systems practical assignment focusing on automation, process control, and data visualization.
+the project was developed as part of an Operating Systems practice assignment focusing on automation, process control, and data visualization
 
 
 
