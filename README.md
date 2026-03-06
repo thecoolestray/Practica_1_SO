@@ -4,8 +4,8 @@
 ---
 
 ## Descripción:
-Este repositorio contiene una práctica de sistemas operativos desarrollada con **Bash y Python**.
-El objetivo de este proyecto es automatizar la captura, el almacenamiento y la visualización de datos de sensores ambientales recibidos de un broker MQTT.
+Este repositorio contiene una práctica de sistemas operativos desarrollada con **Bash y Python**.  
+El objetivo de este proyecto es automatizar la captura, el almacenamiento y la visualización de datos de sensores ambientales recibidos de un broker `MQTT`.  
 El suscriptor QMTT imprime los datos directamente en la terminal sin almacenarlos.
 
 El proyecto resuelve el problema mediante:
@@ -46,50 +46,50 @@ Practica_1_SO
 ---
 
 ## 3. Requisitos del sistema
-- Sistema operativo:
+- Sistema operativo:  
 Linux (probado en Ubuntu 22.04)
-- Shell:
+- Shell:  
 Bash
-- Python:
+- Python:  
 Python 3
 
-### Bibliotecas de Python necesarias
--`matplotlib`
-- json (biblioteca estándar de Python)
+### Bibliotecas de Python necesarias  
+-`matplotlib`  
+- json (biblioteca estándar de Python)   
 
-### Instalar la biblioteca necesaria:
-```in bash
-pip install matplotlib
+### Instalar la biblioteca necesaria:  
+```in bash  
+pip install matplotlib  
 ```
 
 ---
 
 ## 4. Temas de datos MQTT:
-El sistema captura datos de los siguientes temas MQTT:
-`sensor/data/gas_sensor` y `sensor/data/sen55`
+El sistema captura datos de los siguientes temas MQTT:  
+`sensor/data/gas_sensor` y `sensor/data/sen55`  
 
-Ejemplo de salida MQTT recibida del programa suscriptor:
+Ejemplo de salida MQTT recibida del programa suscriptor:  
 ```
-[MSG] Tema: sensor/data/sen55
-Carga útil: {"MassConcentrationPm1p0":0.70,"AmbientTemperature":21.17,...}
+[MSG] Tema: sensor/data/sen55  
+Carga útil: {"MassConcentrationPm1p0":0.70,"AmbientTemperature":21.17,...}  
 ```
-El script de Bash captura esta salida y la almacena en un archivo de registro para su posterior procesamiento.
+El script de Bash captura esta salida y la almacena en un archivo de registro para su posterior procesamiento.  
 
 ---
 
 ## 5. Ejecución del proyecto
-### 1. Otorgue permisos de ejecución al script de Bash
+### 1. Otorgue permisos de ejecución al script de Bash  
+```bash  
+chmod +x capture_mqtt.sh  
+```
+### 2. Ejecute el script de captura  
 ```bash
-chmod +x capture_mqtt.sh
+./capture_mqtt.sh  
 ```
-### 2. Ejecute el script de captura
-```bash
-./capture_mqtt.sh
+### 3. Ingrese el tiempo de captura (en segundos)  
+Ejemplo:  
 ```
-### 3. Ingrese el tiempo de captura (en segundos)
-Ejemplo:
-```
-Ingrese el tiempo de captura (en segundos): 30
+Ingrese el tiempo de captura (en segundos): 30  
 ```
 
 ---
@@ -120,51 +120,52 @@ El script de Python:
 ---
 
 ## 8. Ejemplo de salida:
-Tras ejecutar el programa correctamente, se generan las siguientes salidas:
+Tras ejecutar el programa correctamente, se generan las siguientes salidas:  
 
-- Un archivo de registro con los mensajes MQTT capturados
+- Un archivo de registro con los mensajes MQTT capturados  
 ```
 mqtt_capture.log
 ```
 
-- Gráficos generados en:
+- Gráficos generados en:  
 ```
 plots/
 ```
 
-- Un gráfico ASCII mostrado en la terminal
+- Un gráfico ASCII mostrado en la terminal  
 
 ---
 
-## 9. Problemas comunes
+## 9. Problemas comunes  
 
-### No se encontró la biblioteca de Python
-Instalar la biblioteca requerida:
+### No se encontró la biblioteca de Python  
+Instalar la biblioteca requerida:  
 ```bash
 pip install matplotlib
 ```
 
-### Permiso denegado al ejecutar el script
+### Permiso denegado al ejecutar el script  
 
-Otorgar permiso de ejecución:
+Otorgar permiso de ejecución:  
 ```bash
 chmod +x capture_mqtt.sh
 ```
 
-### El ejecutable MQTT no se está ejecutando
-Asegúrese de que el ejecutable del suscriptor MQTT se encuentre en el directorio del proyecto y tenga permiso de ejecución.
+### El ejecutable MQTT no se está ejecutando  
+Asegúrese de que el ejecutable del suscriptor MQTT se encuentre en el directorio del proyecto y tenga permiso de ejecución.  
 
 ---
 
 ## 10. Autores
-- **Naela Khaldi** y **Zineb Hamman**
-Sistemas Operativos Curso Académico 2025/2026
+- **Naela Khaldi** y **Zineb Hamman**  
+Sistemas Operativos  
+ Curso Académico 2025/2026  
 
 ---
 
 ## 11. Notas
 
-El proyecto se desarrolló como parte de una práctica de Sistemas Operativos centrada en la automatización, el control de procesos y la visualización de datos.
+El proyecto se desarrolló como parte de una práctica de Sistemas Operativos centrada en la automatización, el control de procesos y la visualización de datos.  
 
 
 
