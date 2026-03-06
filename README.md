@@ -1,12 +1,12 @@
-# Práctica 1: Captura y visualización de datos MQTT
-##Sistemas operativos: Proyecto Bash y Python
+# **Práctica 1**: Captura y visualización de datos MQTT
+##Sistemas operativos: **Proyecto Bash y Python**
 
 ---
 
 ## Descripción:
 Este repositorio contiene una práctica de sistemas operativos desarrollada con **Bash y Python**.  
-El objetivo de este proyecto es automatizar la captura, el almacenamiento y la visualización de datos de sensores ambientales recibidos de un broker `MQTT`.  
-El suscriptor QMTT imprime los datos directamente en la terminal sin almacenarlos.
+El objetivo de este proyecto es automatizar la captura, el almacenamiento y la visualización de datos de sensores ambientales recibidos de un broker **MQTT**.  
+El suscriptor **QMTT** imprime los datos directamente en la terminal sin almacenarlos.
 
 El proyecto resuelve el problema mediante:
 
