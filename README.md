@@ -1,34 +1,34 @@
-# Practica 1 – MQTT Data Capture and Visualization
-##Operating Systems – Bash and Python Project
+# Práctica 1: Captura y visualización de datos MQTT
+##Sistemas operativos: Proyecto Bash y Python
 
 ---
 
-## Discription:
-this repository contain a operating systems practice developped using **Bash y Python**
-the objective of this project is to autaumate the capturing, storing and visualizing of enviromental sensor data recieved from an MQTT broker
-the QMTT subscriber prints the data directly into the terminal without storing it
+## Descripción:
+Este repositorio contiene una práctica de sistemas operativos desarrollada con **Bash y Python**.
+El objetivo de este proyecto es automatizar la captura, el almacenamiento y la visualización de datos de sensores ambientales recibidos de un broker MQTT.
+El suscriptor QMTT imprime los datos directamente en la terminal sin almacenarlos.
 
-the project solves the problem by:
+El proyecto resuelve el problema mediante:
 
-- Capturing the program output autumatically
-- Storing the output in a log file
-- Processing the data from the log file
-- Extracts the **JSON** payload 
-- Visualises the data as:
-  - PNG graph
-  - ACSII graph in the terminal
+- Captura automática de la salida del programa
+- Almacenamiento de la salida en un archivo de registro
+- Procesamiento de los datos del archivo de registro
+- Extracción de la carga útil **JSON**
+- Visualización de los datos como:
+  - Gráfico PNG
+  - Gráfico ACSII en la terminal
 
-the program uses multiple Operating Systems concepts such as:
-- Process manigment 
-- Monitoring processes
-- Process termination
-- Log processing
-- Data visualization with **Python**
-- output redirection in **bash**
+El programa utiliza conceptos de múltiples sistemas operativos, como:
+- Gestión de procesos
+- Monitoreo de procesos
+- Terminación de procesos
+- Procesamiento de registros
+- Visualización de datos con **Python**
+- Redirección de salida en **bash**
 
 ---
 
-## 2. Repository structure
+## 2. Estructura del repositorio
 
 ```
 Practica_1_SO
@@ -45,127 +45,126 @@ Practica_1_SO
 
 ---
 
-## 3. System Requirements
-- Operating system: 
-Linux (tested on Ubuntu 22.04)
-- Shell :
+## 3. Requisitos del sistema
+- Sistema operativo:
+Linux (probado en Ubuntu 22.04)
+- Shell:
 Bash
-- Python : 
+- Python:
 Python 3
 
-### Required Python libraries
+### Bibliotecas de Python necesarias
 -`matplotlib`
-- json (standard Python library)
+- json (biblioteca estándar de Python)
 
-### Install required library:
+### Instalar la biblioteca necesaria:
 ```in bash
 pip install matplotlib
 ```
 
 ---
 
-## 4. MQTT Data Topics:
-The system captures data from the following MQTT topics:
-`sensor/data/gas_sensor` and `sensor/data/sen55`
+## 4. Temas de datos MQTT:
+El sistema captura datos de los siguientes temas MQTT:
+`sensor/data/gas_sensor` y `sensor/data/sen55`
 
-Example MQTT output received from the subscriber program:
+Ejemplo de salida MQTT recibida del programa suscriptor:
 ```
-[MSG] Topic: sensor/data/sen55
-Payload: {"MassConcentrationPm1p0":0.70,"AmbientTemperature":21.17,...}
+[MSG] Tema: sensor/data/sen55
+Carga útil: {"MassConcentrationPm1p0":0.70,"AmbientTemperature":21.17,...}
 ```
-The Bash script captures this output and stores it in a log file for later processing
+El script de Bash captura esta salida y la almacena en un archivo de registro para su posterior procesamiento.
 
 ---
 
-## 5. Running the Project
-### 1. Give execution permission to the Bash script
+## 5. Ejecución del proyecto
+### 1. Otorgue permisos de ejecución al script de Bash
 ```bash
 chmod +x capture_mqtt.sh
 ```
-### 2. Run the capture script
+### 2. Ejecute el script de captura
 ```bash
 ./capture_mqtt.sh
 ```
-### 3. Enter capture time (in seconds)
-Example:
+### 3. Ingrese el tiempo de captura (en segundos)
+Ejemplo:
 ```
-Enter capture time (seconds): 30
+Ingrese el tiempo de captura (en segundos): 30
 ```
 
 ---
 
-## 6. Program Execution Flow
-- The bash script executes the MQTT subscriber program
-- The programs output is directed to `capture_mqtt.log`
-- The script get the programs PID using `$!`
-- The script keeps checking if the program is still active using `kill-0`
-- After the chosen time the script stopes the program using :
-  - `SIGINT`
-  - `SIGTERM`
-  - `SIGKILL` (if necessary)
-- the python code is executed automatically 
+## 6. Flujo de ejecución del programa
+- El script bash ejecuta el programa suscriptor MQTT
+- La salida del programa se dirige a `capture_mqtt.log`
+- El script obtiene el PID del programa mediante `$!`
+- El script comprueba continuamente si el programa sigue activo mediante `kill-0`
+- Transcurrido el tiempo seleccionado, el script detiene el programa mediante:
+   - `SIGINT`
+   - `SIGTERM`
+   - `SIGKILL` (si es necesario)
+- El código Python se ejecuta automáticamente
 
 ---
 
-## 7.Python Data Processing
-the Python script:
+## 7. Procesamiento de datos en Python
+El script de Python:
 
-- Reads the `mqtt_capture.log` file
-- Extracts the JSON payload data
-- Parses sensor values
-- Generates graphs of the stored data:
-  - A PNG graph saved on `/plots` directory
-  - An ASCII graph displayed directly in the terminal 
+- Lee el archivo `mqtt_capture.log`
+- Extrae los datos de la carga útil JSON
+- Analiza los valores del sensor
+- Genera gráficos de los datos almacenados:
+- Un gráfico PNG guardado en el directorio `/plots`
+- Un gráfico ASCII mostrado directamente en la terminal
 
 ---
 
-## 8. Example Output:
-After running the program successfully, the following outputs are produced:
+## 8. Ejemplo de salida:
+Tras ejecutar el programa correctamente, se generan las siguientes salidas:
 
-- A log file containing captured MQTT messages
+- Un archivo de registro con los mensajes MQTT capturados
 ```
 mqtt_capture.log
 ```
 
-- Generated graphs in:
+- Gráficos generados en:
 ```
 plots/
 ```
 
-- An ASCII graph displayed in the terminal
+- Un gráfico ASCII mostrado en la terminal
 
 ---
 
-## 9. commen problems 
-   
-### Python library not found
-Install required library:
+## 9. Problemas comunes
+
+### No se encontró la biblioteca de Python
+Instalar la biblioteca requerida:
 ```bash
 pip install matplotlib
 ```
 
-### Permission denied when running the script
+### Permiso denegado al ejecutar el script
 
-Give execution permission:
+Otorgar permiso de ejecución:
 ```bash
 chmod +x capture_mqtt.sh
 ```
 
-### MQTT executable not running
-Ensure the MQTT subscriber executable is located in the project directory and has execution permission
+### El ejecutable MQTT no se está ejecutando
+Asegúrese de que el ejecutable del suscriptor MQTT se encuentre en el directorio del proyecto y tenga permiso de ejecución.
 
 ---
 
-## 10. Authors
+## 10. Autores
 - **Naela Khaldi** y **Zineb Hamman**
-- Operating Systems
-- Academic Year 2025/2026
+Sistemas Operativos Curso Académico 2025/2026
 
 ---
 
-## 11. Notes
+## 11. Notas
 
-The project was developed as part of an Operating Systems practice assignment focusing on automation, process control, and data visualization.
+El proyecto se desarrolló como parte de una práctica de Sistemas Operativos centrada en la automatización, el control de procesos y la visualización de datos.
 
 
 
