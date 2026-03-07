@@ -2,10 +2,12 @@ import json
 import os
 import matplotlib.pyplot as plt
 
+#Archivo generado por el script Bash
 log_file = "mqtt_capture.log"
+#Altura de grafica ASCII
 ALTURA_GRAFICA = 20
 
-
+#lee el archivo log
 def leer_log_file():
 
     lineas = []
@@ -20,7 +22,7 @@ def leer_log_file():
 
     return lineas
 
-
+#extraer todos los valores numericos de los mensajes JSON
 def extraer_values(lineas):
 
     values = []
@@ -32,6 +34,7 @@ def extraer_values(lineas):
             text_json = linea.split("Payload:", 1)[1].strip()
 
             try:
+                #convertir el texto JSON en un diccionario de python
                 data = json.loads(text_json)
 
                 for value in data.values():
@@ -44,9 +47,9 @@ def extraer_values(lineas):
 
     return values
 
-
+#Generar un grafica PNG utilizando matplotlib
 def crear_PNG(values):
-
+    #se crea la carpeta plots si no existe
     os.makedirs("plots", exist_ok=True)
 
     plt.plot(values)
@@ -59,7 +62,7 @@ def crear_PNG(values):
 
     print("PNG grafica guardada")
 
-
+#generar una grafica ASCII en la terminal
 def grafica_ASCII(values):
 
     if len(values) == 0:
@@ -67,6 +70,7 @@ def grafica_ASCII(values):
         return
 
     max_value = int(max(values))
+    #Ancho d ela grafica 
     ancho = len(values)
 
     scaled_values = []
@@ -77,10 +81,11 @@ def grafica_ASCII(values):
         scaled_values.append(level)
 
     print("\n Grafica ASCII \n")
-    
+    #dibujar la grafica de arriba hacia abajo
     for y in range(ALTURA_GRAFICA, -1, -1):
 
         linea = ""
+        #eje y
         if y == ALTURA_GRAFICA:
             linea += f"{max_value:>3} |"
         elif y == 0:
@@ -98,13 +103,14 @@ def grafica_ASCII(values):
     print("  +" + "---" * ancho)
 
     linea_form = "    "
+    #Eje x
     for i in range(ancho):
         linea_form += f"{i:>3}"
     print(linea_form)
 
     print("\n ultimos valores:", values)    
 
-
+#funcion principal del programa 
 def main():
 
     lineas = leer_log_file()
